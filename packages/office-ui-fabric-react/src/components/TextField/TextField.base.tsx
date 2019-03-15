@@ -501,9 +501,9 @@ export class TextFieldBase extends BaseComponent<ITextFieldProps, ITextFieldStat
         this.props.onChange(event, value);
       }
 
-      if (this.props.onChanged) {
-        this.props.onChanged(value);
-      }
+      // if (this.props.onChanged) {
+      //   this.props.onChanged(value);
+      // }
     });
 
     const { validateOnFocusIn, validateOnFocusOut } = this.props;
