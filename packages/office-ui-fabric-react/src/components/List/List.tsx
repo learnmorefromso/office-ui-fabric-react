@@ -367,14 +367,26 @@ export class List extends BaseComponent<IListProps, IListState> implements IList
     for (const page of pages) {
       pageElements.push(this._renderPage(page));
     }
-
     return (
-      <div ref={this._root} {...divProps} role={role === undefined ? 'list' : role} className={css('ms-List', className)}>
+      <div
+        ref={this._root}
+        {...divProps}
+        role={role === undefined ? (pageElements.length === 0 ? '' : 'list') : role}
+        className={css('ms-List', className)}
+      >
         <div ref={this._surface} className={css('ms-List-surface')} role="presentation">
           {pageElements}
         </div>
       </div>
     );
+
+    // return (
+    //   <div ref={this._root} {...divProps} role={role === undefined ? 'list' : role} className={css('ms-List', className)}>
+    //     <div ref={this._surface} className={css('ms-List-surface')} role="presentation">
+    //       {pageElements}
+    //     </div>
+    //   </div>
+    // );
   }
 
   private _shouldVirtualize(props: IListProps = this.props): boolean {

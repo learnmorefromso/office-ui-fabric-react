@@ -68,7 +68,6 @@ export class DropdownBase extends BaseComponent<IDropdownInternalProps, IDropdow
 
   constructor(props: IDropdownProps) {
     super(props);
-
     this._warnDeprecations({
       isDisabled: 'disabled',
       onChanged: 'onChange',
@@ -996,6 +995,7 @@ export class DropdownBase extends BaseComponent<IDropdownInternalProps, IDropdow
 
   private _onFocus = (ev: React.FocusEvent<HTMLDivElement>): void => {
     const { isOpen, selectedIndices } = this.state;
+
     const { multiSelect } = this.props;
 
     const disabled = this._isDisabled();
